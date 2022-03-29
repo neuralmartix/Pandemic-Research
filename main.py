@@ -32,6 +32,14 @@ for elements in y_initial:
         else:
             y_final.append(int(elements))  
 
-print(y_final)            
+print(y_final)
 
+print(df["Date"])
+
+x = []
+for elements in df["Disease"]:
+    x.append(elements)
         
+plt.bar(x,y_final) 
+plt.show()
+       
