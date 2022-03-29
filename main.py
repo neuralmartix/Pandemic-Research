@@ -12,4 +12,26 @@ from csv import writer
 #main code
 df = read_csv("top_pandemics.csv")
 
-print(df["Death"])
+y_initial = [] 
+y_final = [] #y-coordinate
+
+for deaths in df["Death"]:
+    l = deaths.split(" ")
+    y_initial.append(l[0])
+
+for elements in y_initial:
+    if "–" in elements:
+        filter = elements.split("–")
+        if "." in filter[1]:
+            y_final.append(float(filter[1]))
+        else:
+            y_final.append(int(filter[1]))    
+    else:
+        if "." in elements:
+            y_final.append(float(elements))
+        else:
+            y_final.append(int(elements))  
+
+print(y_final)            
+
+        
