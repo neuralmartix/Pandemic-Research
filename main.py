@@ -36,7 +36,6 @@ for elements in y_final:
     elif elements == "":
         y.append("Unknown")
 
-print(y)
 
 x_initial = []
 x = []
@@ -53,14 +52,14 @@ for elements in x_initial:
     else:
         x.append(elements)    
 
-#print(x_initial)
-print(x)
+headers = ["Outbreak", "Percentage of Global Population Lost"]
+with open("new_file.csv", "a") as f:
+    writer_object = writer(f)
+    writer_object.writerow(headers)
+    for i in range(len(x)):
+        details = []
+        details.append(x[i])
+        details.append(y[i])
+        writer_object.writerow(details)        
+    f.close()
 
-"""
-x = []
-for elements in df["Disease"]:
-    x.append(elements)
-        
-plt.bar(x,y) 
-plt.show() 
-"""
