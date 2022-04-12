@@ -23,7 +23,7 @@ for percentages in res["Percentage of Global Population Lost"]:
 plt.plot(x, y)
 plt.show()
 
-print(res["Outbreak"])
+print(res)
 '''
 res = res.groupby(by=["Outbreak"]).sum()
 X = res.index.to_numpy().reshape(-1, 1)
