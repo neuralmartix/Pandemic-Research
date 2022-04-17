@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import random
 from random import randrange
 from csv import writer
+import math
 
 #transmissibility
 df = read_csv("transmissibility.csv")
@@ -23,19 +24,16 @@ plt.show()
 
 #communications internationally
 df2 = read_csv("flights.csv")
+y_flights = []
 x_flights = []
-for years in range(2006,2020):
+for years in range(1960,2021):
+    x_flights.append(years)
     sum = 0
     for elements in df2["{}".format(years)]:
-        if elements == "":
-            sum = sum + 0
-        elif elements != "":
-            try:
-                elements  = float(elements)
-        sum = sum + elements
-            except KeyError:
-                sum = sum + 0
-        x_flights.append(sum)
+        if math.isnan(elements) == False:
+            sum = sum + elements
+    y_flights.append(sum)
 
-print(x_flights)
-
+plt.scatter(x_flights, y_flights)
+plt.plot()
+plt.show()
