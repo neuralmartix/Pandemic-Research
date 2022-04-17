@@ -32,7 +32,7 @@ for years in range(2006,2020):
         elif elements != "":
             try:
                 elements  = float(elements)
-                sum = sum + elements
+        sum = sum + elements
             except KeyError:
                 sum = sum + 0
         x_flights.append(sum)
