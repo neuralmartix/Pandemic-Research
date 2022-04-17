@@ -9,6 +9,7 @@ import random
 from random import randrange
 from csv import writer
 import math
+from scipy.optimize import curve_fit
 
 #transmissibility
 df = read_csv("transmissibility.csv")
@@ -34,6 +35,12 @@ for years in range(1960,2021):
             sum = sum + elements
     y_flights.append(sum)
 
-plt.scatter(x_flights, y_flights)
-plt.plot()
+X = np.arange(-10,10,0.1)
+Y = np.exp(X)
+#plt.scatter(x_flights, y_flights)
+plt.plot(X,Y, color="red")
+#model2 = np.poly1d(np.polyfit(x_flights, y_flights, 2))
+#plt.plot(model2, color="red")
+#plt.plot()
 plt.show()
+
