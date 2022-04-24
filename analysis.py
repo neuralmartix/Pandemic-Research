@@ -10,6 +10,7 @@ from random import randrange
 from csv import writer
 import math
 from scipy.optimize import curve_fit
+from sklearn.linear_model import LinearRegression
 '''
 #transmissibility
 df = read_csv("transmissibility.csv")
@@ -33,11 +34,8 @@ for years in range(1970,2021):
     for elements in df2["{}".format(years)]:
         if math.isnan(elements) == False:
             sum = sum + elements
-    y_flights.append(int(sum))
+    y_flights.append(math.log(int(sum)))
 
-print(len(y_flights))
-print(len(x_flights))    
-plt.scatter(x_flights, y_flights)
-#plt.plot(x_flights, y_fit, color='r')
+plt.scatter(x_flights, y_flights, color='r')
 plt.show()
 
