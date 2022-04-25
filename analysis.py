@@ -38,3 +38,20 @@ for years in range(1970,2021):
 
 plt.scatter(x_flights, y_flights)
 plt.show()
+
+#second analysis of flights
+df2 = read_csv("flights_2.csv")
+x_fli = []
+y_fli = []
+for years in df2["Year"]:
+    x_fli.append(years)
+for elements in df2["Total"]:
+    y_fli.append(math.log(elements))
+
+plt.plot(x_fli,y_fli)
+plt.show()
+'''    
+X = df2['Year'].to_numpy()[:-1].reshape(-1, 1)
+y = df2["Total"].to_numpy()[:-1]
+y = [float(i) for i in y]
+'''
