@@ -44,7 +44,7 @@ for i in range(len(x_flights)):
     details = []
     details.append(x_flights[i]) 
     details.append(y_flights[i])
-    with open("flights2.csv", "a") as f:
+    with open("flights_2.csv", "a") as f:
         writer_object = writer(f)
         writer_object.writerow(details)
         f.close()
