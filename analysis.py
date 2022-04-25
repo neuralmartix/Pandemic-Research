@@ -36,6 +36,5 @@ for years in range(1970,2021):
             sum = sum + elements
     y_flights.append(math.log(int(sum)))
 
-plt.scatter(x_flights, y_flights, color='r')
+plt.scatter(x_flights, y_flights)
 plt.show()
-
