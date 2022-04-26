@@ -11,6 +11,7 @@ from csv import writer
 import math
 from scipy.optimize import curve_fit
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import accuracy_score, r2_score
 '''
 #transmissibility
 df = read_csv("transmissibility.csv")
@@ -48,9 +49,27 @@ for i in range(len(x_flights)):
         writer_object = writer(f)
         writer_object.writerow(details)
         f.close()
+   
+df3 = read_csv("flights_2.csv")
 
-'''    
-X = df2['Year'].to_numpy()[:-1].reshape(-1, 1)
-y = df2["Total"].to_numpy()[:-1]
+X = df3['Year'].to_numpy()[:-1].reshape(-1, 1)
+y = df3["Total"].to_numpy()[:-1]
 y = [float(i) for i in y]
-'''
+
+regression_model = LinearRegression()
+reg = regression_model.fit(X, y)
+
+years_want_to_predict = np.array(range(1970,2021)).reshape(-1, 1)
+results = reg.predict(years_want_to_predict)
+
+plt.scatter(X,y)
+plt.plot(years_want_to_predict, results, color="r")
+plt.show()
+
+print(results)
+
+print('Slope:' ,regression_model.coef_)
+print('Intercept:', regression_model.intercept_)
+
+r2 = r2_score(y_flights, results)
+print("R2 Score: ",r2)
