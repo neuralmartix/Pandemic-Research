@@ -73,3 +73,4 @@ print('Intercept:', regression_model.intercept_)
 
 r2 = r2_score(y_flights, results)
 print("R2 Score: ",r2)
+
