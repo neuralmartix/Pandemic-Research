@@ -74,3 +74,9 @@ print('Intercept:', regression_model.intercept_)
 r2 = r2_score(y_flights, results)
 print("R2 Score: ",r2)
 
+vals = []
+
+def func(year,index):
+    return (10**((0.05640602*year)-89.58350807318894))/index
+
+print(math.log(4*10**23))
