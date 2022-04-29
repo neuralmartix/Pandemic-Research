@@ -78,5 +78,5 @@ vals = []
 
 def func(year,index):
     return (10**((0.05640602*year)-89.58350807318894))/index
+    
 
-print(math.log(4*10**23))
