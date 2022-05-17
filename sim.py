@@ -15,12 +15,11 @@ for i in range(n_epochs):
   year = 0
   #probs = float(randrange(325,496))/1000
   while True:
-    rand = random.uniform(0,1)
-    if rand > 0.496:
-      print(years/n_epochs)
+    rand = randrange(100000)
+    if rand < (0.56*100000): 
       break
     else:
       years += 1
       year += 1
 
-#print(years/n_epochs)
+print(years/n_epochs)
